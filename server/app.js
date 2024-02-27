@@ -17,6 +17,13 @@ const port = 3000
 let rooms = []
 let fullroom = false
 
+app.get("/",(req,res)=>{
+    res.write(`Server is running on Port ${port}`)
+    res.end()
+})
+
+
+
 io.on('connection',(socket)=>{
 
     fullroom = false
