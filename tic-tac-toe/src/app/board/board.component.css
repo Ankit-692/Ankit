@@ -1,0 +1,85 @@
+.board{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    max-width: fit-content;
+    max-height: fit-content;
+    height: -moz-max-content;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    background-color: rgba(229, 227, 227, 0.619);
+}
+
+.heading{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.notouch{
+    pointer-events: none;
+}
+
+.result{
+    font-size: 3.5rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 60vw;
+    height: 40vh;
+    border-radius: 30px;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.ngbtn,
+.goBack{
+    color: white;
+    border: none;
+    background-color: rgb(39, 122, 246);
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.ngbtn:active,
+.goBack:active{
+ background-color: rgb(15, 57, 210);
+}
+
+.waiting{
+    text-align: center;
+}
+
+.goBack{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media only screen and (max-width:720px){
+    .result{
+        width: 90vw;
+        font-size: 2rem;
+    }
+
+    .heading{
+        font-size: 2rem;
+    }
+    
+}

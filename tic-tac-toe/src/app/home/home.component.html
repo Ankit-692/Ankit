@@ -1,0 +1,26 @@
+<p class="title">TIC-TAC-TOE</p>
+
+<div class="userForm">
+    <form (ngSubmit)="createRoom()" class="createForm">
+        <label>Username</label>
+        <input type="text" name="name" [(ngModel)]="data.username">
+        <br>
+        <label>Room ID</label>
+        <input type="text" name="roomId" [(ngModel)]="data.roomId">
+        <br>
+        <button type="submit">Create Room</button>
+    </form>
+    <p>or</p>
+    <button (click)="gameService.search()">Search Rooms</button>
+</div>
+
+
+<div class="search" *ngIf="gameService.searchbox">
+    <button (click)="cancelSearch()" class="close">X</button>
+    <div *ngFor="let b of gameService.rooms">
+        <form (ngSubmit)="joinRoom(b)">
+            <button class="roomsbtn">{{b}}</button>
+        </form>
+    </div>
+    <button (click)="gameService.search()" class="inner-search">Refresh</button>
+</div>

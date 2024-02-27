@@ -1,0 +1,120 @@
+.search{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    padding: 50px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+    background-color: rgb(246, 245, 245);
+    height: 50%;
+    width: 75%;
+    border-radius: 20px;
+}
+
+.close{
+    position: absolute;
+    right: 30px;
+    width: 2rem;
+    height: 2rem;
+    padding: 10px;
+    padding-bottom: 25px;
+}
+
+.roomsbtn{
+    min-width: fit-content;
+    margin: 25px;
+}
+
+.inner-search{
+    position: absolute;
+    bottom: 30px;
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.userForm{
+    position: absolute;
+    padding: 50px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 30vw;
+    height: 60vh;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    background-color: rgba(225, 233, 242, 0.811);
+}
+
+.createForm{
+    display: flex;
+    flex-direction: column;
+    justify-items: left;
+    font-size: 1.6rem;
+}
+
+input{
+    border: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5),
+    -1px -1px 3px rgba(0, 0, 0, 0.5);
+    height: 3rem;
+    border-radius: 10px;
+    font-size: large;
+}
+
+button{
+    width: 50%;
+    margin-bottom: 2em;
+    color: white;
+    border: none;
+    background-color: rgb(39, 122, 246);
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 25%;
+}
+
+button:active{
+    background-color: rgb(15, 57, 210);
+}
+
+p{
+    text-align: center;
+}
+
+.title{
+    margin-top: 0;
+    font-size: 3.5rem;
+}
+
+@media only screen and (max-width:720px) {
+    .userForm{
+        width: 65vw;
+        padding-bottom: 100px;
+        top: 100px;
+    }
+
+    button{
+        margin-bottom: 1em;
+    }
+
+    .title{
+        font-size: 2rem
+    }
+
+    .search{
+        width: 65%;
+    }
+    
+}

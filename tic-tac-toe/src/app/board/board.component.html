@@ -1,0 +1,29 @@
+<p *ngIf="!gameService.Notouch" class="heading">Your Turn</p>
+<p *ngIf="gameService.Notouch" class="heading">Opponent's Turn</p>
+<div class="board" [ngClass]="{'notouch': gameService.Notouch}">
+    <div *ngFor="let p of gameService.board">
+        <app-sqaure [box]="p"></app-sqaure>
+    </div>
+</div>
+
+<div class="waiting">
+    <p *ngIf="gameService.userLeft">Player Left!!</p>
+    <p *ngIf="gameService.waiting">Waiting for another Player</p>
+</div>
+
+<div *ngIf="gameService.roomFull" class="result">
+    <p>Sorry Room Already Full</p>
+    <button class="goBack" (click)="goBack()">Home</button>
+</div>
+
+        
+<div *ngIf="gameService.GameFinish">
+    <div class="result">
+        <p *ngIf="gameService.winner">YOU WON !!! 👑</p>
+        <p *ngIf="gameService.loser">YOU LOSE !!! 👎🏾</p>
+        <p *ngIf="gameService.draw">It's a Draw 😑</p>
+        <button (click)="gameService.newGame()" class="ngbtn">New Game</button>
+    </div>
+</div>
+
+<button class="goBack" (click)="goBack()">Leave Room</button>
