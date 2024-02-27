@@ -124,7 +124,7 @@ export class GameServiceService{
 
   connect(){
     if(!this.socket){
-      this.socket = io("http://localhost:3000",{ transports : ['websocket'] })
+      this.socket = io("https://tic-tac-toe-game-6bnwdobfy-ankit-692.vercel.app",{ transports : ['websocket'] })
     }
 
     this.update();
