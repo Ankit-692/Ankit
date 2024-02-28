@@ -13,7 +13,7 @@ app.use(cors({
 const server = http.createServer(app)
 const io = new Server(server)
 
-const port = 3000
+const port = process.env.port || 3000
 let rooms = []
 let fullroom = false
 
