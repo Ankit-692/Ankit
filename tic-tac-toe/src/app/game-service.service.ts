@@ -32,10 +32,6 @@ export class GameServiceService{
   }
 
   newGame(){
-    this.currentPlayer = 'O'
-    this.Notouch = true
-    this.turnCount = 0
-    this.socket.emit('clicked',{board:this.board,roomId:this.roomId})
     this.socket.emit('newGame',this.roomId)
   }
 
@@ -54,6 +50,7 @@ export class GameServiceService{
         for(let i = 0; i<9; i++){
           this.board[i].state = null
         }
+        this.currentPlayer = 'X'
         this.turnCount = 0
         this.draw = false
         this.waiting = false
@@ -113,9 +110,11 @@ export class GameServiceService{
       this.Notouch = true;
       this.board[box.id].state = this.currentPlayer
       this.GameFinish = this.checkBoard(this.board)
+
       if(this.turnCount == 5 && !this.GameFinish){
         this.socket.emit('draw',this.roomId)
       }
+
       this.socket.emit('clicked',{board:this.board,roomId:this.roomId})
 
       if(this.GameFinish){
