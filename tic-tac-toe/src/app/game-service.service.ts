@@ -46,7 +46,6 @@ export class GameServiceService{
 
       this.socket.on('updateBoard',(boardData:any)=>{
         this.Notouch = false
-        this.currentPlayer = this.currentPlayer == 'X' ? 'O':'X'
         this.board = boardData
       })
 
@@ -95,6 +94,10 @@ export class GameServiceService{
         this.socket.emit('newGame',this.roomId)
       })
 
+      this.socket.on('chanCurrPlayer',()=>{
+        this.currentPlayer = this.currentPlayer == 'X' ? 'O':'X'
+      })
+
     }
 
 
@@ -112,7 +115,6 @@ export class GameServiceService{
       }
       this.Notouch = true;
       this.board[box.id].state = this.currentPlayer
-      this.currentPlayer = this.currentPlayer == 'X' ? 'O':'X'
       this.socket.emit('clicked',{board:this.board,roomId:this.roomId})
       this.GameFinish = this.checkBoard(this.board)
 

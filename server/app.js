@@ -67,6 +67,7 @@ io.on('connection',(socket)=>{
     socket.on('clicked',({board,roomId})=>{
         fullroom = false
         socket.to(roomId).emit('updateBoard',board)
+        io.to(roomId).emit('chanCurrPlayer')
     })
 
     socket.on('finishGame',(roomId)=>{
