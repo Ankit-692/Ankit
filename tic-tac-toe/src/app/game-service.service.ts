@@ -57,7 +57,6 @@ export class GameServiceService{
         this.draw = false
         this.waiting = false
         this.userLeft = false
-        this.currentPlayer = 'X'
         this.winner = false
         this.loser = false
         this.GameFinish = false
@@ -110,7 +109,7 @@ export class GameServiceService{
   changePlayer(box: { id: string | number; }){
     if(this.board[box.id].state == null){
       this.turnCount += 1
-      if(this.turnCount == 5){
+      if(this.turnCount == 5 && this.winner == false){
         this.socket.emit('draw',this.roomId)
       }
       this.Notouch = true;
