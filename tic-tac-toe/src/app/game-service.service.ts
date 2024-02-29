@@ -110,13 +110,13 @@ export class GameServiceService{
   changePlayer(box: { id: string | number; }){
     if(this.board[box.id].state == null){
       this.turnCount += 1
-      if(this.turnCount == 5 && this.winner == false){
-        this.socket.emit('draw',this.roomId)
-      }
       this.Notouch = true;
       this.board[box.id].state = this.currentPlayer
-      this.socket.emit('clicked',{board:this.board,roomId:this.roomId})
       this.GameFinish = this.checkBoard(this.board)
+      if(this.turnCount == 5 && !this.GameFinish){
+        this.socket.emit('draw',this.roomId)
+      }
+      this.socket.emit('clicked',{board:this.board,roomId:this.roomId})
 
       if(this.GameFinish){
         this.finishGame()
