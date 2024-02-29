@@ -32,6 +32,7 @@ export class GameServiceService{
   }
 
   newGame(){
+    this.currentPlayer = 'O'
     this.Notouch = true
     this.turnCount = 0
     this.socket.emit('clicked',{board:this.board,roomId:this.roomId})
